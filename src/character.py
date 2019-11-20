@@ -10,6 +10,7 @@ class Hero(Character):
         self.name="Mac Gyver"
         self.x = x
         self.y = y
+        
 
 class Villain(Character):
     def __init__(self,x,y):

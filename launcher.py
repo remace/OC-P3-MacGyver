@@ -1,5 +1,5 @@
-from src.areas import *
-#from src.character import *
+from src.areas import Maze
+
 
 maze = Maze("maze.txt")
 exit = False
