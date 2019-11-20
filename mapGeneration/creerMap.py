@@ -7,7 +7,7 @@ def createMaze(width,height):
             f.write('M ')
         f.write("\n")
         for i in range(height-2):
-            f.write("M ")
+            f.write('M ')
             for j in range(width-2):
                 f.write("S ")
             f.write('M\n')

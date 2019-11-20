@@ -51,13 +51,16 @@ class Maze:
         # a representation of the maze
         
         #mapString = "case: ({0};{1})\t\tMG({2};{3})".format(self.map[2][2].x,self.map[2][2].y,self.MG.x,self.MG.y)
+        compteur=0
         for i in self.map:
+            mapString+='{}\t'.format(compteur)
             for j in i:
                 if self.Guard.x==j.x and self.Guard.y==j.y:
-                    mapString += 'H '
+                    mapString += 'V '
                 elif self.MG.x==j.x and self.MG.y==j.y:
                     mapString += 'G '
                 else:
                     mapString+=j.genre+" "
             mapString+="\n"
+            compteur+=1
         return mapString
