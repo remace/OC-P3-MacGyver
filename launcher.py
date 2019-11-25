@@ -29,13 +29,13 @@ while exit==False:
             print("mouvement vers la droite")
         else:
             print("Ouch! There's a Wall")
-    elif action=="a":
+    elif action=="e":
         compteur=0
         for i in maze.items:
             if i.x==maze.MG.x and i.y==maze.MG.y:
                 maze.MG.gatherItem(i)
                 maze.items.remove(i)
-                print('objet ramassé: '.format(i.name))
+                print('objet ramassé: {}'.format(i.name))
                 compteur+=1
         if compteur==0:
             print('aucun objet à ramasser!')
