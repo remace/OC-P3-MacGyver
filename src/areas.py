@@ -44,7 +44,7 @@ class Maze:
             self.MG = Hero(int(line[1]),int(line[2]))
             line=f.readline()
             line=line.split("\t")
-            self.Guard = Villain(int(line[1]),int(line[2]))
+            self.Guard = Villain(int(line[1]),int(line[2]),line[3],line[4])
 
             f.readline()
             line = f.readline()
@@ -93,3 +93,19 @@ class Maze:
             mapString += "{}\n".format(i)
 
         return mapString
+    
+    def testVictoire(self):
+        c=0 #counting missing items in inventory
+        for i in self.Guard.deathItems:
+            c1=0 #counting occurrencies of each item from Guard deathlist in Mac Gyver's inventory
+            for j in self.MG.inventory:
+                print("{} (deathlist) : {} - OK".format(i,j))
+                if i == j:
+                    c1+=1
+                    break
+            if c1==0:
+                print("VOUS AVEZ PERDU! il manque {}".format(i))
+                c+=1
+                break
+        if c==0:
+            print("VOUS AVEZ GAGNE")

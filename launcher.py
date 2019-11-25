@@ -11,24 +11,40 @@ while exit==False:
             print("mouvement vers le haut")
         else:
             print("Ouch! There's a Wall!")
+        if maze.MG.x==maze.Guard.x and maze.MG.y == maze.Guard.y:
+            maze.testVictoire()
+            exit = True
+        
     elif action=="q":
         if maze.map[maze.MG.y][maze.MG.x-1].genre!="M":
             maze.MG.x-=1
             print("mouvement vers la gauche")
         else:
             print("Ouch! There's a Wall!")
+        if maze.MG.x==maze.Guard.x and maze.MG.y == maze.Guard.y:
+            maze.testVictoire()
+            exit = True
+        
     elif action == "s":
         if maze.map[maze.MG.y+1][maze.MG.x].genre!="M":
             maze.MG.y+=1
             print("mouvement vers le bas")
         else:
             print("Ouch! There's a Wall!")
+        if maze.MG.x==maze.Guard.x and maze.MG.x == maze.Guard.y:
+            maze.testVictoire()
+            exit = True
+        
     elif action == "d":
         if maze.map[maze.MG.y][maze.MG.x+1].genre!="M":
             maze.MG.x+=1
             print("mouvement vers la droite")
         else:
             print("Ouch! There's a Wall")
+        if maze.MG.x==maze.Guard.x and maze.MG.y == maze.Guard.y:
+            maze.testVictoire()
+            exit = True
+        
     elif action=="e":
         compteur=0
         for i in maze.items:

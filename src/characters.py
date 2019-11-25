@@ -19,10 +19,13 @@ class Hero(Character):
         
 
 class Villain(Character):
-    def __init__(self,x,y):
+    def __init__(self,x,y,di1,di2):
         self.name="Garde"
         self.x = x
         self.y = y
+        self.deathItems=[]
+        self.deathItems.append(di1)
+        self.deathItems.append(di2)
 
     def __del__(self):
         pass

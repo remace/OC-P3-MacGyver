@@ -9,8 +9,8 @@ M S S S S S S S S S S S S S S S S S S M
 M S S S S S S S S S S S S S S S S S S M
 M M M M M M M M M M M M M M M M M M M M 
 
-Mac Gyver	2	7
-Garde	18	8
+Mac Gyver	2	8
+Garde	5	8	aiguille	tuyau	
 
-aiguille	6	6
-tuyau	7	7
+aiguille	3	8
+tuyau	4	8
