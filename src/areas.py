@@ -1,4 +1,5 @@
-from src.character import *
+from src.characters import Hero,Villain
+from src.items import Item
 
 class Area:
     """ zone de la carte, 
@@ -21,7 +22,7 @@ class Maze:
     def __init__(self,chemin):
         #create an array that contains each area of the maze
         self.map = list(list())
-
+        self.items = list()
         #read the maze.txt file to get the map, each area
         with open('maze.txt', 'r') as f:
             for i in range(10):
@@ -36,15 +37,26 @@ class Maze:
                     j+=1
                 self.map.append(lineList)
                 
+            f.readline()
             line = f.readline()
-            line = f.readline()
+            #read characters
             line=line.split("\t")
             self.MG = Hero(int(line[1]),int(line[2]))
             line=f.readline()
             line=line.split("\t")
             self.Guard = Villain(int(line[1]),int(line[2]))
 
-            #print("MacGyver ({0};{1})".format(self.MG.x,self.MG.y))
+            f.readline()
+            line = f.readline()
+            #read items
+            line = line.split("\t")
+            item = Item(line[0],line[1],line[2])
+            self.items.append(item)
+            
+            line = f.readline()
+            line = line.split("\t")
+            item = Item(line[0],line[1],line[2])
+            self.items.append(item)
         
     def __str__(self):
         mapString = ""
@@ -55,6 +67,10 @@ class Maze:
         for i in self.map:
             mapString+='{}\t'.format(compteur)
             for j in i:
+                for k in self.items:
+                    if k.x==j.x and k.y==j.y:
+                        mapString+='O '
+                    continue
                 if self.Guard.x==j.x and self.Guard.y==j.y:
                     mapString += 'V '
                 elif self.MG.x==j.x and self.MG.y==j.y:
@@ -63,4 +79,7 @@ class Maze:
                     mapString+=j.genre+" "
             mapString+="\n"
             compteur+=1
+        mapString+="\n"
+        for i in self.items:
+               mapString += "{}:\t{}\t{}".format(i.name,i.x,i.y)
         return mapString
