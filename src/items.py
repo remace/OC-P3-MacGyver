@@ -4,4 +4,3 @@ class Item:
         self.name = name
         self.x = x
         self.y = y
-    

@@ -10,7 +10,8 @@ M S S S S S S S S S S S S S S S S S S M
 M M M M M M M M M M M M M M M M M M M M 
 
 Mac Gyver	2	8
-Garde	5	8	aiguille	tuyau	
+Garde	6	8	aiguille	tuyau	seringue	
 
 aiguille	3	8
 tuyau	4	8
+seringue	5	8

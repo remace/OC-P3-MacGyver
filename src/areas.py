@@ -47,17 +47,13 @@ class Maze:
             self.Guard = Villain(int(line[1]),int(line[2]),line[3],line[4])
 
             f.readline()
-            line = f.readline()
             #read items
-            line = line.split("\t")
-            item = Item(line[0],int(line[1]),int(line[2]))
-            self.items.append(item)
-            
-            line = f.readline()
-            line = line.split("\t")
-            item = Item(line[0],int(line[1]),int(line[2]))
-            self.items.append(item)
-        
+            for i in range(3):
+                line = f.readline()
+                line = line.split("\t")
+                item = Item(line[0],int(line[1]),int(line[2]))
+                self.items.append(item)
+
     def __str__(self):
         mapString = ""
         # a representation of the maze
@@ -87,11 +83,15 @@ class Maze:
             if i.x==self.MG.x and self.MG.y==i.y:
                 mapString += "sous vos pieds: {}".format(i.name)
         
+        #printing items location
+        for i in self.items:
+            print("{}:({};{})".format(i.name,i.x,i.y))
+
+
         #printing the inventory
         mapString += ('\ninventaire: \n')
         for i in self.MG.inventory:
             mapString += "{}\n".format(i)
-
         return mapString
     
     def testVictoire(self):
@@ -99,13 +99,12 @@ class Maze:
         for i in self.Guard.deathItems:
             c1=0 #counting occurrencies of each item from Guard deathlist in Mac Gyver's inventory
             for j in self.MG.inventory:
-                print("{} (deathlist) : {} - OK".format(i,j))
                 if i == j:
                     c1+=1
                     break
             if c1==0:
-                print("VOUS AVEZ PERDU! il manque {}".format(i))
+                print("You Lost!")
                 c+=1
                 break
         if c==0:
-            print("VOUS AVEZ GAGNE")
+            print("You Won!")

@@ -16,11 +16,12 @@ def createMaze(width,height):
         
         f.write('\n\n')#on passe aux personnages
         f.write('Mac Gyver\t2\t8\n')
-        f.write('Garde\t5\t8\taiguille\ttuyau\t')
+        f.write('Garde\t6\t8\taiguille\ttuyau\tseringue\t')
 
         f.write("\n\n")#on passe aux objets
         f.write("aiguille\t3\t8\n")
-        f.write("tuyau\t4\t8")
+        f.write("tuyau\t4\t8\n")
+        f.write("seringue\t5\t8\n")
 
 if __name__=="__main__":
     createMaze(20,10)
