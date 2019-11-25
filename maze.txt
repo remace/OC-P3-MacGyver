@@ -9,5 +9,8 @@ M S S S S S S S S S S S S S S S S S S M
 M S S S S S S S S S S S S S S S S S S M
 M M M M M M M M M M M M M M M M M M M M 
 
-Mac Gyver	1	1
+Mac Gyver	2	7
 Garde	18	8
+
+aiguille	6	6
+tuyau	7	7

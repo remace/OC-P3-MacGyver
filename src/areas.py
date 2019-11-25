@@ -50,12 +50,12 @@ class Maze:
             line = f.readline()
             #read items
             line = line.split("\t")
-            item = Item(line[0],line[1],line[2])
+            item = Item(line[0],int(line[1]),int(line[2]))
             self.items.append(item)
             
             line = f.readline()
             line = line.split("\t")
-            item = Item(line[0],line[1],line[2])
+            item = Item(line[0],int(line[1]),int(line[2]))
             self.items.append(item)
         
     def __str__(self):
@@ -67,19 +67,29 @@ class Maze:
         for i in self.map:
             mapString+='{}\t'.format(compteur)
             for j in i:
+                hasItem = False
                 for k in self.items:
                     if k.x==j.x and k.y==j.y:
-                        mapString+='O '
-                    continue
-                if self.Guard.x==j.x and self.Guard.y==j.y:
-                    mapString += 'V '
-                elif self.MG.x==j.x and self.MG.y==j.y:
+                        hasItem = True
+                        break
+                if self.MG.x==j.x and self.MG.y==j.y:
                     mapString += 'G '
+                elif self.Guard.x==j.x and self.Guard.y==j.y:
+                    mapString += 'V '
+                elif hasItem == True:
+                    mapString += 'O '
                 else:
                     mapString+=j.genre+" "
             mapString+="\n"
             compteur+=1
         mapString+="\n"
         for i in self.items:
-               mapString += "{}:\t{}\t{}".format(i.name,i.x,i.y)
+            if i.x==self.MG.x and self.MG.y==i.y:
+                mapString += "sous vos pieds: {}".format(i.name)
+        
+        #printing the inventory
+        mapString += ('\ninventaire: \n')
+        for i in self.MG.inventory:
+            mapString += "{}\n".format(i)
+
         return mapString
