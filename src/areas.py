@@ -44,7 +44,7 @@ class Maze:
             self.MG = Hero(int(line[1]),int(line[2]))
             line=f.readline()
             line=line.split("\t")
-            self.Guard = Villain(int(line[1]),int(line[2]),line[3],line[4])
+            self.Guard = Villain(int(line[1]),int(line[2]),line[3],line[4],line[5])
 
             f.readline()
             #read items

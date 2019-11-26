@@ -24,4 +24,4 @@ def createMaze(width,height):
         f.write("seringue\t5\t8\n")
 
 if __name__=="__main__":
-    createMaze(20,10)
+    createMaze(10,10)

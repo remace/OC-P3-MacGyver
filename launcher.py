@@ -4,11 +4,11 @@ maze = Maze("maze.txt")
 exit = False
 while exit==False: 
     print(maze)
-    action = input("quelle action?")
+    action = input("which action?\n(zqsd for a movement, e for gathering what lies on the floor, then press enter)\n")
     if action == "z":
         if maze.map[maze.MG.y-1][maze.MG.x].genre!="M":
             maze.MG.y-=1
-            print("mouvement vers le haut")
+            print("moving to the north")
         else:
             print("Ouch! There's a Wall!")
         if maze.MG.x==maze.Guard.x and maze.MG.y == maze.Guard.y:
@@ -18,7 +18,7 @@ while exit==False:
     elif action=="q":
         if maze.map[maze.MG.y][maze.MG.x-1].genre!="M":
             maze.MG.x-=1
-            print("mouvement vers la gauche")
+            print("moving to the west")
         else:
             print("Ouch! There's a Wall!")
         if maze.MG.x==maze.Guard.x and maze.MG.y == maze.Guard.y:
@@ -28,7 +28,7 @@ while exit==False:
     elif action == "s":
         if maze.map[maze.MG.y+1][maze.MG.x].genre!="M":
             maze.MG.y+=1
-            print("mouvement vers le bas")
+            print("moving to the south")
         else:
             print("Ouch! There's a Wall!")
         if maze.MG.x==maze.Guard.x and maze.MG.x == maze.Guard.y:
@@ -38,7 +38,7 @@ while exit==False:
     elif action == "d":
         if maze.map[maze.MG.y][maze.MG.x+1].genre!="M":
             maze.MG.x+=1
-            print("mouvement vers la droite")
+            print("moving to the east")
         else:
             print("Ouch! There's a Wall")
         if maze.MG.x==maze.Guard.x and maze.MG.y == maze.Guard.y:
