@@ -2,9 +2,7 @@ from src.characters import Hero, Villain
 from src.items import Item
 
 class Area:
-    """ zone de la carte, 
-    peut être un sol et contenir un objet et un personnage
-    ou être un mur et ne doit rien contenir.
+    """ Area on the map. has an index in each dimension: x and y
     """
     def __init__(self, x, y, genre):
         self.x = x
@@ -18,7 +16,7 @@ class Area:
 
 
 class Maze:
-    
+    """ represents the maze with a 2-dimensionnal array of areas, and an array of items lying on the ground """
     def __init__(self,chemin):
         #create an array that contains each area of the maze
         self.map = list(list())
@@ -27,24 +25,24 @@ class Maze:
         with open(chemin, 'r') as f:
             for i in range(10):
                 line = f.readline()
-                lineList = list()
+                line_list = list()
                 j=0
                 for char in line:                    
-                    if char==" " or char=="\n":
+                    if char == " " or char == "\n":
                         continue
                     else:
-                        lineList.append(Area(j,i,char))
+                        line_list.append(Area(j, i, char))
                     j+=1
-                self.map.append(lineList)
+                self.map.append(line_list)
                 
             f.readline()
             line = f.readline()
             #read characters
-            line=line.split("\t")
-            self.MG = Hero(int(line[1]),int(line[2]))
-            line=f.readline()
-            line=line.split("\t")
-            self.Guard = Villain(int(line[1]),int(line[2]),line[3],line[4],line[5])
+            line = line.split("\t")
+            self.mg = Hero(int(line[1]),int(line[2]))
+            line = f.readline()
+            line = line.split("\t")
+            self.guard = Villain(int(line[1]), int(line[2]), line[3], line[4], line[5])
 
             f.readline()
             #read items
@@ -57,33 +55,30 @@ class Maze:
     def __str__(self):
         map_string = ""
         # a representation of the maze
-        count=0
         for i in self.map:
-            map_string+='{}\t'.format(count)
             for j in i:
-                hasItem = False
+                has_item = False
                 for k in self.items:
                     if k.x==j.x and k.y==j.y:
-                        hasItem = True
+                        has_item = True
                         break
-                if self.MG.x==j.x and self.MG.y==j.y:
+                if self.mg.x==j.x and self.mg.y==j.y:
                     map_string += 'G '
-                elif self.Guard.x==j.x and self.Guard.y==j.y:
+                elif self.guard.x==j.x and self.guard.y==j.y:
                     map_string += 'V '
-                elif hasItem == True:
+                elif has_item:
                     map_string += 'O '
                 else:
-                    map_string+=j.genre+" "
-            map_string+="\n"
-            count+=1
-        map_string+="\n"
+                    map_string += j.genre+" "
+            map_string += "\n"
+        map_string += "\n"
         for i in self.items:
-            if i.x==self.MG.x and self.MG.y==i.y:
+            if i.x == self.mg.x and self.mg.y==i.y:
                 map_string += "lying on the floor, waiting to be gathered: {}".format(i.name)
 
         #printing the inventory
         map_string += ('\ninventory: \n')
-        for i in self.MG.inventory:
+        for i in self.mg.inventory:
             map_string += "{}\n".format(i)
         return map_string
     
@@ -92,9 +87,9 @@ class Maze:
         should be called only when Mac Gyver walks on a keeper
         """
         missing_item = False
-        for i in self.Guard.death_items:
+        for i in self.guard.death_items:
             item_in_inventory = False
-            for j in self.MG.inventory:
+            for j in self.mg.inventory:
                 if i == j:
                     item_in_inventory = True
                     break
