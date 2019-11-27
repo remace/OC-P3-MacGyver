@@ -1,4 +1,5 @@
 class Character:
+    """abstract class about characters like Mac Gyver and the Villain"""
     def __init__(self, x, y):
         self.x = x
         self.y = y
