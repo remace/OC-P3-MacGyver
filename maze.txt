@@ -10,8 +10,8 @@ M S S S S S S S S M
 M M M M M M M M M M 
 
 Mac Gyver	2	8
-Garde	6	8	aiguille	tuyau	seringue	
+Keeper	6	8	needle	pipe	syringe	
 
-aiguille	3	8
-tuyau	4	8
-seringue	5	8
+needle	3	8
+pipe	4	8
+syringe	5	8
