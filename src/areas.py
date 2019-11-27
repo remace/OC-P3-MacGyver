@@ -6,7 +6,7 @@ class Area:
     peut être un sol et contenir un objet et un personnage
     ou être un mur et ne doit rien contenir.
     """
-    def __init__(self,x,y,genre):
+    def __init__(self, x, y, genre):
         self.x = x
         self.y = y
         #trouver un nom en anglais pour "sol ou mur"
@@ -106,5 +106,5 @@ class Maze:
                 print("You Lost!")
                 c+=1
                 break
-        if c==0:
+        if not c:
             print("You Won!")
