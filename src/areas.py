@@ -1,10 +1,10 @@
+"""module with the definition of an area and of a Maze"""
+
 from src.characters import Hero, Villain
 from src.items import Item
 
-
 class Area:
-    """ Area on the map. has an index in each dimension: x and y
-    """
+    """ Area on the map. has an index in each dimension: x and y"""
 
     def __init__(self, x, y, genre):
         self.x = x
@@ -19,6 +19,9 @@ class Maze:
     """ represents the maze with a 2-dimension array of areas, and an array of items lying on the ground """
 
     def __init__(self, link):
+        """Maze constructor
+            link parameter is the link to a maze file
+        """ 
         # create an array that contains each area of the maze
         self.map = list(list())
         self.items = list()
@@ -54,6 +57,7 @@ class Maze:
                 self.items.append(item)
 
     def __str__(self):
+        """ representing the map in a text terminal"""
         map_string = ""
         # a representation of the maze
         for i in self.map:

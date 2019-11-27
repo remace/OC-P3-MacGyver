@@ -4,7 +4,8 @@ maze = Maze("maze.txt")
 exit = False
 while not exit:
     print(maze)
-    action = input("which action?\n(zqsd for a movement, e for gathering what lies on the floor, then press enter)\n")
+    action = input(
+        "which action?\n(zqsd for a movement, e for gathering what lies on the floor, then press enter)\n")
     if action == "z":
         if maze.map[maze.mg.y-1][maze.mg.x].genre != "M":
             maze.mg.y -= 1
