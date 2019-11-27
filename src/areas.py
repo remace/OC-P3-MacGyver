@@ -1,4 +1,4 @@
-from src.characters import Hero,Villain
+from src.characters import Hero, Villain
 from src.items import Item
 
 class Area:
@@ -24,7 +24,7 @@ class Maze:
         self.map = list(list())
         self.items = list()
         #read the maze.txt file to get the map, each area
-        with open('maze.txt', 'r') as f:
+        with open(chemin, 'r') as f:
             for i in range(10):
                 line = f.readline()
                 lineList = list()
@@ -80,11 +80,6 @@ class Maze:
         for i in self.items:
             if i.x==self.MG.x and self.MG.y==i.y:
                 map_string += "lying on the floor, waiting to be gathered: {}".format(i.name)
-        
-        #printing items location
-        for i in self.items:
-            print("{}:({};{})".format(i.name,i.x,i.y))
-
 
         #printing the inventory
         map_string += ('\ninventory: \n')
@@ -93,8 +88,11 @@ class Maze:
         return map_string
     
     def test_victoire(self):
+        """function testing if the game ends with a victory or a lose.
+        should be called only when Mac Gyver walks on a keeper
+        """
         missing_item = False
-        for i in self.Guard.deathItems:
+        for i in self.Guard.death_items:
             item_in_inventory = False
             for j in self.MG.inventory:
                 if i == j:

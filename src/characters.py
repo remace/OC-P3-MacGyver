@@ -7,9 +7,9 @@ class Character:
 class Hero(Character):
     """class defining a hero, mainly MacGyver in this game"""
     def __init__(self,x,y):
+        "constructor for a Hero"
+        Character.__init__(self,x,y)
         self.name="Mac Gyver"
-        self.x = x
-        self.y = y
         self.inventory = {}
     
     def gatherItem(self, i):
@@ -20,13 +20,12 @@ class Hero(Character):
 
 class Villain(Character):
     def __init__(self,x,y,di1,di2,di3):
+        Character.__init__(self,x,y)
         self.name="Garde"
-        self.x = x
-        self.y = y
-        self.deathItems=[]
-        self.deathItems.append(di1)
-        self.deathItems.append(di2)
-        self.deathItems.append(di3)
+        self.death_items=[]
+        self.death_items.append(di1)
+        self.death_items.append(di2)
+        self.death_items.append(di3)
 
     def __del__(self):
         pass
