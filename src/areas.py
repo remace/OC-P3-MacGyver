@@ -93,9 +93,9 @@ class Maze:
         return map_string
     
     def test_victoire(self):
-        missing_item = False #counting missing items in inventory
+        missing_item = False
         for i in self.Guard.deathItems:
-            item_in_inventory #counting occurrencies of each item from Guard deathlist in Mac Gyver's inventory
+            item_in_inventory = False
             for j in self.MG.inventory:
                 if i == j:
                     item_in_inventory = True
