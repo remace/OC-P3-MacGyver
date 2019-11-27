@@ -12,7 +12,7 @@ while exit==False:
         else:
             print("Ouch! There's a Wall!")
         if maze.MG.x==maze.Guard.x and maze.MG.y == maze.Guard.y:
-            maze.testVictoire()
+            maze.test_victoire()
             exit = True
         
     elif action=="q":
@@ -22,7 +22,7 @@ while exit==False:
         else:
             print("Ouch! There's a Wall!")
         if maze.MG.x==maze.Guard.x and maze.MG.y == maze.Guard.y:
-            maze.testVictoire()
+            maze.test_victoire()
             exit = True
         
     elif action == "s":
@@ -32,7 +32,7 @@ while exit==False:
         else:
             print("Ouch! There's a Wall!")
         if maze.MG.x==maze.Guard.x and maze.MG.x == maze.Guard.y:
-            maze.testVictoire()
+            maze.test_victoire()
             exit = True
         
     elif action == "d":
@@ -42,7 +42,7 @@ while exit==False:
         else:
             print("Ouch! There's a Wall")
         if maze.MG.x==maze.Guard.x and maze.MG.y == maze.Guard.y:
-            maze.testVictoire()
+            maze.test_victoire()
             exit = True
         
     elif action=="e":

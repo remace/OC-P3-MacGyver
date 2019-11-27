@@ -55,13 +55,11 @@ class Maze:
                 self.items.append(item)
 
     def __str__(self):
-        mapString = ""
+        map_string = ""
         # a representation of the maze
-        
-        #mapString = "case: ({0};{1})\t\tMG({2};{3})".format(self.map[2][2].x,self.map[2][2].y,self.MG.x,self.MG.y)
-        compteur=0
+        count=0
         for i in self.map:
-            mapString+='{}\t'.format(compteur)
+            map_string+='{}\t'.format(count)
             for j in i:
                 hasItem = False
                 for k in self.items:
@@ -69,19 +67,19 @@ class Maze:
                         hasItem = True
                         break
                 if self.MG.x==j.x and self.MG.y==j.y:
-                    mapString += 'G '
+                    map_string += 'G '
                 elif self.Guard.x==j.x and self.Guard.y==j.y:
-                    mapString += 'V '
+                    map_string += 'V '
                 elif hasItem == True:
-                    mapString += 'O '
+                    map_string += 'O '
                 else:
-                    mapString+=j.genre+" "
-            mapString+="\n"
-            compteur+=1
-        mapString+="\n"
+                    map_string+=j.genre+" "
+            map_string+="\n"
+            count+=1
+        map_string+="\n"
         for i in self.items:
             if i.x==self.MG.x and self.MG.y==i.y:
-                mapString += "sous vos pieds: {}".format(i.name)
+                map_string += "lying on the floor, waiting to be gathered: {}".format(i.name)
         
         #printing items location
         for i in self.items:
@@ -89,22 +87,22 @@ class Maze:
 
 
         #printing the inventory
-        mapString += ('\ninventaire: \n')
+        map_string += ('\ninventory: \n')
         for i in self.MG.inventory:
-            mapString += "{}\n".format(i)
-        return mapString
+            map_string += "{}\n".format(i)
+        return map_string
     
-    def testVictoire(self):
-        c=0 #counting missing items in inventory
+    def test_victoire(self):
+        missing_item = False #counting missing items in inventory
         for i in self.Guard.deathItems:
-            c1=0 #counting occurrencies of each item from Guard deathlist in Mac Gyver's inventory
+            item_in_inventory #counting occurrencies of each item from Guard deathlist in Mac Gyver's inventory
             for j in self.MG.inventory:
                 if i == j:
-                    c1+=1
+                    item_in_inventory = True
                     break
-            if c1==0:
+            if not item_in_inventory:
                 print("You Lost!")
-                c+=1
+                missing_item = True
                 break
-        if not c:
+        if not missing_item:
             print("You Won!")

@@ -22,6 +22,6 @@ def createMaze(width,height):
         f.write("needle\t3\t8\n")
         f.write("pipe\t4\t8\n")
         f.write("syringe\t5\t8\n")
-
+        
 if __name__=="__main__":
     createMaze(10,10)
