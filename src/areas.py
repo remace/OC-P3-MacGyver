@@ -43,7 +43,7 @@ class Maze:
             line = f.readline()
             # read characters
             line = line.split("\t")
-            self.mg = Hero(int(line[1]), int(line[2]))
+            self.mac_gyver = Hero(int(line[1]), int(line[2]))
             line = f.readline()
             line = line.split("\t")
             self.guard = Villain(line[0], int(line[1]), int(line[2]), line[3], line[4], line[5])
@@ -67,7 +67,7 @@ class Maze:
                     if k.x == j.x and k.y == j.y:
                         has_item = True
                         break
-                if self.mg.x == j.x and self.mg.y == j.y:
+                if self.mac_gyver.x == j.x and self.mac_gyver.y == j.y:
                     map_string += 'G '
                 elif self.guard.x == j.x and self.guard.y == j.y:
                     map_string += 'V '
@@ -78,12 +78,12 @@ class Maze:
             map_string += "\n"
         map_string += "\n"
         for i in self.items:
-            if i.x == self.mg.x and self.mg.y == i.y:
+            if i.x == self.mac_gyver.x and self.mac_gyver.y == i.y:
                 map_string += "lying on the floor, waiting to be gathered: {}".format(i.name)
 
         # printing the inventory
         map_string += '\ninventory: \n'
-        for i in self.mg.inventory:
+        for i in self.mac_gyver.inventory:
             map_string += "{}\n".format(i)
         return map_string
 
@@ -94,7 +94,7 @@ class Maze:
         missing_item = False
         for i in self.guard.death_items:
             item_in_inventory = False
-            for j in self.mg.inventory:
+            for j in self.mac_gyver.inventory:
                 if i == j:
                     item_in_inventory = True
                     break
