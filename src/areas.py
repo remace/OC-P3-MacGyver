@@ -1,4 +1,4 @@
-"""module with the definition of an area and of a Maze"""
+"""module with the definitions of an area and of a Maze"""
 
 from src.characters import Hero, Villain
 from src.items import Item
@@ -16,19 +16,22 @@ class Area:
 
 
 class Maze:
-    """ represents the maze with a 2-dimension array of areas, and an array of items lying on the ground """
+    """ represents the maze with:
+    a 2-dimension array of areas,
+    and an array of items lying on the ground
+    """
 
     def __init__(self, link):
         """Maze constructor
             link parameter is the link to a maze file
-        """ 
+        """
         # create an array that contains each area of the maze
         self.map = list(list())
         self.items = list()
         # read the maze.txt file to get the map, each area
-        with open(link, 'r') as f:
+        with open(link, 'r') as file:
             for i in range(10):
-                line = f.readline()
+                line = file.readline()
                 line_list = list()
                 j = 0
                 for char in line:
@@ -39,19 +42,19 @@ class Maze:
                     j += 1
                 self.map.append(line_list)
 
-            f.readline()
-            line = f.readline()
+            file.readline()
+            line = file.readline()
             # read characters
             line = line.split("\t")
             self.mac_gyver = Hero(int(line[1]), int(line[2]))
-            line = f.readline()
+            line = file.readline()
             line = line.split("\t")
             self.guard = Villain(line[0], int(line[1]), int(line[2]), line[3], line[4], line[5])
 
-            f.readline()
+            file.readline()
             # read items
             for i in range(3):
-                line = f.readline()
+                line = file.readline()
                 line = line.split("\t")
                 item = Item(line[0], int(line[1]), int(line[2]))
                 self.items.append(item)
