@@ -7,9 +7,11 @@ def main():
     exit_game = False
     while not exit_game:
         print(maze)
+
         action = input("which action?\n(zqsd for a movement,"
                        "e for gathering what lies on the floor,"
                        "then press enter)\n")
+
         if action == "z":
             if maze.map[maze.mac_gyver.y-1][maze.mac_gyver.x].genre != "M":
                 maze.mac_gyver.y -= 1
