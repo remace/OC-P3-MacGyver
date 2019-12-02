@@ -29,4 +29,4 @@ def create_maze(width, height):
         file.write("syringe\t5\t8\n")
 
 if __name__ == "__main__":
-    create_maze(50, 50)
+    create_maze(10,10)

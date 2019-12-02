@@ -1,12 +1,23 @@
 """launcher of the game, contents all the interaction logic"""
 from src.areas import Maze
+import pygame
+from pygame.locals import *
 
 def main():
     """starting the game"""
     maze = Maze("maze.txt")
     exit_game = False
+    
+    #creating a window
+    window = pygame.display.set_mode((400,400))
+    
     while not exit_game:
         print(maze)
+        
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                exit_game = True
+                
 
         action = input("which action?\n(zqsd for a movement,"
                        "e for gathering what lies on the floor,"
