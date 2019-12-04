@@ -1,5 +1,9 @@
 """launcher of the game, contents all the interaction logic"""
-from sources.areas import Maze
+# from sources.areas import Maze
+# import sources.constants
+from sources.areas import *
+from sources.constants import *
+
 import pygame
 from pygame.locals import *
 
@@ -7,7 +11,7 @@ from pygame.locals import *
 def main():
     """starting the game"""
     pygame.init()
-    window = pygame.display.set_mode((320, 560), )
+    window = pygame.display.set_mode((MAZE_WIDTH * AREA_SIZE, WINDOW_HEIGHT), )
     pygame.display.set_caption("Mac Gyver")
     # icon=pygame.image.load("img/icon.png").convert()
     # pygame.display.set_icon(icon)
@@ -97,7 +101,7 @@ def ending_screen(window, win):
         police = pygame.font.Font(None, 64)
         text = police.render("You WIN", True, pygame.Color("#00FF00"))
         rect_text = text.get_rect()
-        rect_text.center = (160, 352)
+        rect_text.center = (MAZE_WIDTH*AREA_SIZE/2, MAZE_HEIGHT*AREA_SIZE+30)
         window.blit(text, rect_text)
         win_sound.play()
 
@@ -106,17 +110,17 @@ def ending_screen(window, win):
         police = pygame.font.Font(None, 64)
         text = police.render("You LOSE", True, pygame.Color("#FF0000"))
         rect_text = text.get_rect()
-        rect_text.center = (160, 352)
+        rect_text.center = (MAZE_WIDTH*AREA_SIZE/2, MAZE_HEIGHT*AREA_SIZE+30)
         window.blit(text, rect_text)
         lose_sound.play()
 
     text = "pictures:\n Jesse Freeman and Dan Wolfe\ncoding:\nRemi Tauvel (studies project)"
     police = pygame.font.Font("font/Android 101.ttf", 15)
-    y = 400
+    y = MAZE_HEIGHT*AREA_SIZE+54
     for line in text.splitlines():
         rendered_line = police.render(line, True, pygame.Color("#FFFFFF"))
         rect_text = rendered_line.get_rect()
-        rect_text.center = (160, y)
+        rect_text.center = (MAZE_WIDTH*AREA_SIZE/2,y)
         window.blit(rendered_line, rect_text)
         y += 17
 

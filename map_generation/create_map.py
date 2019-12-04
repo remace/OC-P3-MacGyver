@@ -4,7 +4,7 @@ def create_maze(width, height):
     """function that creates a rectangle map with:
     walls only on the border, and floor in the center
     Mac Gyver is in area 2,8
-    the villain is in area 6,8
+    the villain is in area 13,13
     items are between them
     """
     with open('./maze.txt', 'w') as file:
@@ -24,9 +24,9 @@ def create_maze(width, height):
         file.write('Keeper\t6\t8\tneedle\tpipe\tsyringe\t')
 
         file.write("\n\n")  # writing items
-        file.write("needle\t3\t8\n")
-        file.write("pipe\t4\t8\n")
-        file.write("syringe\t5\t8\n")
+        file.write("needle\n")
+        file.write("pipe\n")
+        file.write("syringe\n")
 
 if __name__ == "__main__":
-    create_maze(10,10)
+    create_maze(15, 15)

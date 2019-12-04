@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "C:\\Users\\remi\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe",
+    "python.pythonPath": "env\\Scripts\\python.exe",
     "python.linting.pycodestyleEnabled":false,
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true

@@ -1,7 +1,9 @@
 """module with the definitions of an area and of a Maze"""
-
 from sources.characters import Hero, Villain
 from sources.items import Item
+from sources.constants import *
+
+import random
 
 import pygame
 from pygame.locals import *
@@ -33,8 +35,9 @@ class Maze:
         self.map = list(list())
         self.items = list()
         # read the maze.txt file to get the map, each area
+        floor_list = list()
         with open(link, 'r') as file:
-            for i in range(10):
+            for i in range(MAZE_HEIGHT):
                 line = file.readline()
                 line_list = list()
                 j = 0
@@ -43,6 +46,8 @@ class Maze:
                         continue
                     else:
                         line_list.append(Area(j, i, char))
+                        if char == "S":
+                            floor_list.append([i,j])
                     j += 1
                 self.map.append(line_list)
 
@@ -57,11 +62,13 @@ class Maze:
 
             file.readline()
             # read items 
-            # TODO emplacement aléatoire et non lu dans le fichier
+            print(floor_list)
             for i in range(3):
                 line = file.readline()
-                line = line.split("\t")
-                item = Item(line[0], int(line[1]), int(line[2]))
+                line=line.split("\n")
+                j = random.randint(0, len(floor_list)-1)
+                item = Item(line[0], floor_list[j][1], floor_list[j][0])
+                floor_list.remove(floor_list[j])
                 self.items.append(item)
 
     def __str__(self):
@@ -101,47 +108,49 @@ class Maze:
             for j in i:
                 if j.genre == "M":
                     wall_image = pygame.image.load("img/wall.png").convert()
-                    window.blit(wall_image, (j.x*32, j.y*32))
+                    window.blit(wall_image, (j.x*AREA_SIZE, j.y*AREA_SIZE))
                 elif j.genre == "S":
                     floor_image = pygame.image.load("img/floor.png").convert()
-                    window.blit(floor_image, (j.x*32, j.y*32))
+                    window.blit(floor_image, (j.x*AREA_SIZE, j.y*AREA_SIZE))
                     
         for i in self.items:
             item_image = pygame.image.load("img/item.png").convert_alpha()
-            window.blit(item_image, (32*i.x, 32*i.y))
+            window.blit(item_image, (AREA_SIZE*i.x, AREA_SIZE*i.y))
 
         # print the keeper's image
         keeper_image = pygame.image.load("img/keeper.png").convert_alpha()
-        window.blit(keeper_image, (32*self.guard.x, 32*self.guard.y))
+        window.blit(keeper_image, (AREA_SIZE*self.guard.x, AREA_SIZE*self.guard.y))
 
         # print Mac gyver's image
         mac_gyver_image = pygame.image.load("img/mac_gyver.png").convert_alpha()
-        window.blit(mac_gyver_image, (32*self.mac_gyver.x, 32*self.mac_gyver.y))
+        window.blit(mac_gyver_image, (AREA_SIZE*self.mac_gyver.x, AREA_SIZE*self.mac_gyver.y))
         
-        # print the inventory items
+        # print the inventory item
         counter = 0
         for i in self.mac_gyver.inventory:
             item_image = pygame.image.load("img/"+i+".png").convert()
-            window.blit(item_image, ((counter+1)*32+counter*64, 560-64))
+            x=(counter+1)*AREA_SIZE*2+counter*INVENTORY_ITEMS_SIZE
+            y=WINDOW_HEIGHT-INVENTORY_ITEMS_SIZE
+            window.blit(item_image, (x,y))
             counter += 1
         # print the inventory frame
-        for i in range(10):
-            window.blit(floor_image, (32*i, 560-3*32))
-        for i in [0, 3, 6, 9]:
-            window.blit(floor_image, (32*i, 560-2*32))
-        for i in [0, 3, 6, 9]:
-            window.blit(floor_image, (32*i, 560-32))
+        for i in range(MAZE_WIDTH):
+            window.blit(floor_image, (AREA_SIZE*i, WINDOW_HEIGHT-3*AREA_SIZE))
+        for i in [0, 1, 4, 5, 8, 9, 12, 13, 14]:
+            window.blit(floor_image, (AREA_SIZE*i, WINDOW_HEIGHT-2*AREA_SIZE))
+        for i in [0, 1, 4, 5, 8, 9, 12, 13, 14]:
+            window.blit(floor_image, (AREA_SIZE*i, WINDOW_HEIGHT-AREA_SIZE))
 
         if self.mac_gyver.x == 1 and self.mac_gyver.y == 1:
             text = "moving: Z,Q,S,D or arrows.\n gathering an item: e or space"
         else:
             text = ""
         police = pygame.font.Font("font/Android 101.ttf", 15)
-        y = 430
+        y = WINDOW_HEIGHT-3*AREA_SIZE-40
         for line in text.splitlines():
             rendered_line = police.render(line, True, pygame.Color("#FFFFFF"))
             rect_text = rendered_line.get_rect()
-            rect_text.center = (160, y)
+            rect_text.center = (MAZE_WIDTH*AREA_SIZE/2, y)
             window.blit(rendered_line, rect_text)
             y += 17
 
