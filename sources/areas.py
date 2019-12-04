@@ -35,7 +35,7 @@ class Maze:
         self.map = list(list())
         self.items = list()
         # read the maze.txt file to get the map, each area
-        floor_list = list()
+        floor_list = list() # array of areas where items can spawn
         with open(link, 'r') as file:
             for i in range(MAZE_HEIGHT):
                 line = file.readline()
@@ -50,6 +50,10 @@ class Maze:
                             floor_list.append([i,j])
                     j += 1
                 self.map.append(line_list)
+
+            # removing the starting area and the guard's area
+            floor_list.remove([1,1])
+            floor_list.remove([13,13])
 
             file.readline()
             line = file.readline()
