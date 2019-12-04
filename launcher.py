@@ -91,7 +91,7 @@ def main():
                     maze.items.remove(i)
                     item_sound.play()
                     print("item gathered: {}".format(i.name))
-                    item_on_floor =  True
+                    item_on_floor = True
             if not item_on_floor:
                 print("there's no item to gather here")
         elif action != "a":
@@ -129,9 +129,10 @@ def ending_screen(window, win):
     for line in text.splitlines():
         rendered_line = police.render(line, True, pygame.Color("#FFFFFF"))
         rect_text = rendered_line.get_rect()
-        rect_text.center = (MAZE_WIDTH*AREA_SIZE/2,y)
+        rect_text.center = (MAZE_WIDTH*AREA_SIZE/2, y)
         window.blit(rendered_line, rect_text)
         y += 17
+
 
 if __name__ == '__main__':
     main()

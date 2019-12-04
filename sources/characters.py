@@ -5,13 +5,7 @@ class Character:
     """abstract class about characters like Mac Gyver and the Villain"""
 
     def __init__(self, x, y):
-        """
-        Constructor
-        
-        Args:
-            x (int): Abscisse coordinate
-            y (int): Ordinate coordinate
-        """
+        """constructor"""
         self.x = x
         self.y = y
 

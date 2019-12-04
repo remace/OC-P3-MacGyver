@@ -6,7 +6,6 @@ from sources.constants import *
 import random
 
 import pygame
-from pygame.locals import *
 
 
 class Area:
@@ -35,7 +34,7 @@ class Maze:
         self.map = list(list())
         self.items = list()
         # read the maze.txt file to get the map, each area
-        floor_list = list() # array of areas where items can spawn
+        floor_list = list()  # array of areas where items can spawn
         with open(link, 'r') as file:
             for i in range(MAZE_HEIGHT):
                 line = file.readline()
@@ -47,13 +46,13 @@ class Maze:
                     else:
                         line_list.append(Area(j, i, char))
                         if char == "S":
-                            floor_list.append([i,j])
+                            floor_list.append([i, j])
                     j += 1
                 self.map.append(line_list)
 
             # removing the starting area and the guard's area
-            floor_list.remove([1,1])
-            floor_list.remove([13,13])
+            floor_list.remove([1, 1])
+            floor_list.remove([13, 13])
 
             file.readline()
             line = file.readline()
@@ -68,7 +67,7 @@ class Maze:
             # create items with random location
             for i in range(3):
                 line = file.readline()
-                line=line.split("\n")
+                line = line.split("\n")
                 j = random.randint(0, len(floor_list)-1)
                 item = Item(line[0], floor_list[j][1], floor_list[j][0])
                 floor_list.remove(floor_list[j])
@@ -132,11 +131,12 @@ class Maze:
         counter = 0
         for i in self.mac_gyver.inventory:
             item_image = pygame.image.load("img/"+i+".png").convert()
-            x=(counter+1)*AREA_SIZE*2+counter*INVENTORY_ITEMS_SIZE
-            y=WINDOW_HEIGHT-INVENTORY_ITEMS_SIZE
-            window.blit(item_image, (x,y))
+            x = (counter+1) * AREA_SIZE * 2 + counter * INVENTORY_ITEMS_SIZE
+            y = WINDOW_HEIGHT-INVENTORY_ITEMS_SIZE
+            window.blit(item_image, (x, y))
             counter += 1
         # print the inventory frame
+        floor_image = pygame.image.load("img/floor.png").convert()
         for i in range(MAZE_WIDTH):
             window.blit(floor_image, (AREA_SIZE*i, WINDOW_HEIGHT-3*AREA_SIZE))
         for i in [0, 1, 4, 5, 8, 9, 12, 13, 14]:
