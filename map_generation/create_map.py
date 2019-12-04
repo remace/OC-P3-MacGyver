@@ -20,8 +20,8 @@ def create_maze(width, height):
             file.write('M ')
 
         file.write('\n\n')  # writing characters
-        file.write('Mac Gyver\t2\t8\n')
-        file.write('Keeper\t6\t8\tneedle\tpipe\tsyringe\t')
+        file.write('Mac Gyver\t1\t1\n')
+        file.write('Keeper\t13\t13\tneedle\tpipe\tsyringe\t')
 
         file.write("\n\n")  # writing items
         file.write("needle\n")

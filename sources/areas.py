@@ -61,8 +61,7 @@ class Maze:
             self.guard = Villain(line[0], int(line[1]), int(line[2]), line[3], line[4], line[5])
 
             file.readline()
-            # read items 
-            print(floor_list)
+            # create items with random location
             for i in range(3):
                 line = file.readline()
                 line=line.split("\n")

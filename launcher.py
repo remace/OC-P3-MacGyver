@@ -46,45 +46,54 @@ def main():
         if action == "z":
             if maze.map[maze.mac_gyver.y - 1][maze.mac_gyver.x].genre != "M":
                 maze.mac_gyver.y -= 1
+                print("move to the North")
             else:
                 collision_sound.play()
+                print("ouch! there's a wall")
             if maze.mac_gyver.x == maze.guard.x and maze.mac_gyver.y == maze.guard.y:
                 win = maze.test_victoire()
 
         elif action == "q":
             if maze.map[maze.mac_gyver.y][maze.mac_gyver.x - 1].genre != "M":
                 maze.mac_gyver.x -= 1
+                print("move to the West")
             else:
                 collision_sound.play()
+                print("ouch! there's a wall")
             if maze.mac_gyver.x == maze.guard.x and maze.mac_gyver.y == maze.guard.y:
                 win = maze.test_victoire()
 
         elif action == "s":
             if maze.map[maze.mac_gyver.y + 1][maze.mac_gyver.x].genre != "M":
                 maze.mac_gyver.y += 1
+                print("move to the South")
             else:
                 collision_sound.play()
+                print("ouch! there's a wall")
             if maze.mac_gyver.x == maze.guard.x and maze.mac_gyver.y == maze.guard.y:
                 win = maze.test_victoire()
 
         elif action == "d":
             if maze.map[maze.mac_gyver.y][maze.mac_gyver.x + 1].genre != "M":
                 maze.mac_gyver.x += 1
+                print("move to the East")
             else:
                 collision_sound.play()
+                print("ouch! there's a wall")
             if maze.mac_gyver.x == maze.guard.x and maze.mac_gyver.y == maze.guard.y:
                 win = maze.test_victoire()
 
         elif action == "e":
-            count = 0
+            item_on_floor = False
             for i in maze.items:
                 if i.x == maze.mac_gyver.x and i.y == maze.mac_gyver.y:
                     maze.mac_gyver.gather_item(i)
                     maze.items.remove(i)
                     item_sound.play()
-                    count += 1
-            if count == 0:
-                print("there's no item to gather")
+                    print("item gathered: {}".format(i.name))
+                    item_on_floor =  True
+            if not item_on_floor:
+                print("there's no item to gather here")
         elif action != "a":
             exit_game = True
 
@@ -123,7 +132,6 @@ def ending_screen(window, win):
         rect_text.center = (MAZE_WIDTH*AREA_SIZE/2,y)
         window.blit(rendered_line, rect_text)
         y += 17
-
 
 if __name__ == '__main__':
     main()
