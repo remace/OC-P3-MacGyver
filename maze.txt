@@ -1,17 +1,17 @@
 M M M M M M M M M M 
-M S S S S S S S S M
-M S S S S S S S S M
-M S S S S S S S S M
-M S S S S S S S S M
-M S S S S S S S S M
-M S S S S S S S S M
-M S S S S S S S S M
-M S S S S S S S S M
+M S M S S S S S S M
+M S M S M S S M S M
+M S M M M S S M S M
+M S S S S S S M S M
+M M M S M M M M S M
+M S S S S S S M S M
+M S M M M M S M S M
+M S M S S S S M S M
 M M M M M M M M M M 
 
-Mac Gyver	2	8
-Keeper	6	8	needle	pipe	syringe	
+Mac Gyver	1	1
+Keeper	8	8	needle	pipe	syringe	
 
-needle	3	8
-pipe	4	8
-syringe	5	8
+needle	1	8
+pipe	3	2
+syringe	3	8
