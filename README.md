@@ -34,9 +34,9 @@ Pour ce faire, vous pouvez:
     * Evenements clavier
     * Boucle d'affichage avec le labyrinthe, les objets et personnages, ainsi qu'un inventaire et des indications sur la case de départ
     * Quelques sons pour donner des informations au joueur
-    * Supprimer tous les messages qui s'affichent dans la console
+    * Supprimer tous les messages inutiles qui s'affichent dans la console (ceux qui ne mettent pas en avant un comportement du jeu)
 * Retravailler le labyrinthe pour qu'il y ressemble vraiment, plutôt qu'à une pièce avec seulement 2 personnages et 3 coffres à l'intérieur.
 
 ## Difficultés rencontrées
 
-J'ai eu un petit soucis de changement d'environnement de développement, notamment de Windows (pour les sessions mentorat) à Manjaro (environnement sur lequel je code), qui a créé des soucis m'empêchant d'installer pygame dans l'environnement virtuel du repo initial...
+RAS
