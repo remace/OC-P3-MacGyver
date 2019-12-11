@@ -17,10 +17,6 @@
    * Activer cet environnement `%CD%/env/scripts/activate.ps1`
    * Installer les dépendances dans cet environnement`python -m pip install -r requirements.txt`
    * Exécuter le fichier launcher.py `python launcher.py`
-   
-   OU
-   * lancer setup.bat (une seule fois suffit)
-   * lancer launcher.py en double-cliquant dessus dans le dossier OC-P3-MacGyver créé par setup.bat
 
 ## Notice d'utilisation:
 
