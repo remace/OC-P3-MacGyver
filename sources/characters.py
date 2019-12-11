@@ -20,7 +20,7 @@ class Hero(Character):
     
     def move(self, dir):
         """Method applying moves to the Character"""
-        if dir=="NORTH":
+        if dir == "NORTH":
             self.y -= 1
         elif dir == "SOUTH":
             self.y += 1
