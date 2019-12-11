@@ -2,12 +2,25 @@
 
 ## Notice d'installation et de lancement:
 
-* Clonez le repo github: `git clone https://github.com/remace/OC-P3-MacGyver.git`
-* Créez un environnement virtuel python: `virtualenv env`
-* Activez cet environnement: `source env/bin/activate`
-* se placer dans le dossier du projet: `cd OC-P3-MacGyver`
-* Installez pygame dans cet environnement: `python -m pip install -r requirements.txt`
-* Exécutez le fichier laucher.py: `python launcher.py`
+* sur linux:
+   * Clonez le repo github: `git clone https://github.com/remace/OC-P3-MacGyver.git`
+   * Se placer dans le dossier du projet: `cd OC-P3-MacGyver`
+   * Créez un environnement virtuel python: `virtualenv env`
+   * Activez cet environnement: `source env/bin/activate`
+   * Installez pygame dans cet environnement: `python -m pip install -r requirements.txt`
+   * Exécutez le fichier laucher.py: `python launcher.py`
+   
+* sur windows:
+   * Cloner le repo github `git clone https://github.com/remace/OC-P3-MacGyver.git`
+   * Se placer dans le dossier du projet: `cd %CD%\OC-P3-MacGyver`
+   * Créer un environnement virtuel python `virtualenv env`
+   * Activer cet environnement `%CD%/env/scripts/activate.ps1`
+   * Installer les dépendances dans cet environnement`python -m pip install -r requirements.txt`
+   * Exécuter le fichier launcher.py `python launcher.py`
+   
+   OU
+   * lancer demo.bat (une seule fois suffit)
+   * lancer launcher.py en double-cliquant dessus dans le dossier OC-P3-MacGyver créé par le demo.bat
 
 ## Notice d'utilisation:
 
