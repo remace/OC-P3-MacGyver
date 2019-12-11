@@ -45,7 +45,7 @@ def main():
 
         if action == "z":
             if maze.map[maze.mac_gyver.y - 1][maze.mac_gyver.x].genre != "M":
-                maze.mac_gyver.y -= 1
+                maze.mac_gyver.move("NORTH")
                 print("move to the North")
             else:
                 collision_sound.play()
@@ -55,7 +55,7 @@ def main():
 
         elif action == "q":
             if maze.map[maze.mac_gyver.y][maze.mac_gyver.x - 1].genre != "M":
-                maze.mac_gyver.x -= 1
+                maze.mac_gyver.move("WEST")
                 print("move to the West")
             else:
                 collision_sound.play()
@@ -65,7 +65,7 @@ def main():
 
         elif action == "s":
             if maze.map[maze.mac_gyver.y + 1][maze.mac_gyver.x].genre != "M":
-                maze.mac_gyver.y += 1
+                maze.mac_gyver.move("SOUTH")
                 print("move to the South")
             else:
                 collision_sound.play()
@@ -75,7 +75,7 @@ def main():
 
         elif action == "d":
             if maze.map[maze.mac_gyver.y][maze.mac_gyver.x + 1].genre != "M":
-                maze.mac_gyver.x += 1
+                maze.mac_gyver.move("EAST")
                 print("move to the East")
             else:
                 collision_sound.play()

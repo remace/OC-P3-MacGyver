@@ -17,6 +17,16 @@ class Hero(Character):
         super().__init__(x, y)
         self.name = "Mac Gyver"
         self.inventory = {}
+    
+    def move(self, dir):
+        if dir=="NORTH":
+            self.y -= 1
+        elif dir == "SOUTH":
+            self.y += 1
+        elif dir == "WEST":
+            self.x -= 1
+        elif dir == "EAST":
+            self.x += 1
 
     def gather_item(self, i):
         """gather an Item on the floor at the position of the hero.
