@@ -19,8 +19,8 @@
    * Exécuter le fichier launcher.py `python launcher.py`
    
    OU
-   * lancer demo.bat (une seule fois suffit)
-   * lancer launcher.py en double-cliquant dessus dans le dossier OC-P3-MacGyver créé par le demo.bat
+   * lancer setup.bat (une seule fois suffit)
+   * lancer launcher.py en double-cliquant dessus dans le dossier OC-P3-MacGyver créé par setup.bat
 
 ## Notice d'utilisation:
 
