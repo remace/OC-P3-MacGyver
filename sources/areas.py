@@ -58,7 +58,7 @@ class Maze:
             line = file.readline()
             # read characters
             line = line.split("\t")
-            self.mac_gyver = Hero(int(line[1]), int(line[2]))
+            self.mac_gyver = Hero(int(line[1]), int(line[2]), line[0])
             line = file.readline()
             line = line.split("\t")
             self.guard = Villain(line[0], int(line[1]), int(line[2]), line[3], line[4], line[5])
@@ -72,6 +72,8 @@ class Maze:
                 item = Item(line[0], floor_list[j][1], floor_list[j][0])
                 floor_list.remove(floor_list[j])
                 self.items.append(item)
+            
+            del floor_list
 
     def __str__(self):
         """ representing the map in a text terminal"""

@@ -4,18 +4,18 @@
 class Character:
     """abstract class about characters like Mac Gyver and the Villain"""
 
-    def __init__(self, x, y):
+    def __init__(self, x, y, name):
         """constructor"""
         self.x = x
         self.y = y
+        self.name = name
 
 
 class Hero(Character):
     """class defining a hero, mainly Mac Gyver in this game"""
-    def __init__(self, x, y):
+    def __init__(self, x, y, name):
         """constructor for a Hero"""
-        super().__init__(x, y)
-        self.name = "Mac Gyver"
+        super().__init__(x, y, name)
         self.inventory = {}
     
     def move(self, dir):
@@ -39,8 +39,7 @@ class Villain(Character):
     """class defining a Villain, mainly the keeper"""
     def __init__(self, name, x, y, di1, di2, di3):
         """constructor for a villain"""
-        super().__init__(x, y)
-        self.name = name
+        super().__init__(x, y, name)
         self.death_items = []
         self.death_items.append(di1)
         self.death_items.append(di2)
