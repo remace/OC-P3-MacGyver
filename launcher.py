@@ -25,7 +25,7 @@ def main():
     while not exit_game:
         if not freeze:
             window.fill((0, 0, 0))
-        maze.print(window)
+        maze.print_maze(window)
         pygame.display.flip()
         action = "a"
         for event in pygame.event.get():
@@ -110,7 +110,7 @@ def ending_screen(window, win):
         police = pygame.font.Font(None, 64)
         text = police.render("You WIN", True, pygame.Color("#00FF00"))
         rect_text = text.get_rect()
-        rect_text.center = (MAZE_WIDTH*AREA_SIZE/2, MAZE_HEIGHT*AREA_SIZE+30)
+        rect_text.center = (int(MAZE_WIDTH*AREA_SIZE/2), MAZE_HEIGHT*AREA_SIZE+30)
         window.blit(text, rect_text)
         win_sound.play()
 
@@ -119,7 +119,7 @@ def ending_screen(window, win):
         police = pygame.font.Font(None, 64)
         text = police.render("You LOSE", True, pygame.Color("#FF0000"))
         rect_text = text.get_rect()
-        rect_text.center = (MAZE_WIDTH*AREA_SIZE/2, MAZE_HEIGHT*AREA_SIZE+30)
+        rect_text.center = (int(MAZE_WIDTH*AREA_SIZE/2), MAZE_HEIGHT*AREA_SIZE+30)
         window.blit(text, rect_text)
         lose_sound.play()
 
@@ -129,7 +129,7 @@ def ending_screen(window, win):
     for line in text.splitlines():
         rendered_line = police.render(line, True, pygame.Color("#FFFFFF"))
         rect_text = rendered_line.get_rect()
-        rect_text.center = (MAZE_WIDTH*AREA_SIZE/2, y)
+        rect_text.center = (int(MAZE_WIDTH*AREA_SIZE/2), y)
         window.blit(rendered_line, rect_text)
         y += 17
 

@@ -104,7 +104,7 @@ class Maze:
             map_string += "{}\n".format(i)
         return map_string
 
-    def print(self, window):
+    def print_maze(self, window):
         """representing the maze in a pygame window"""
         for i in self.map:
             for j in i:
