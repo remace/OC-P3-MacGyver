@@ -19,6 +19,7 @@ class Hero(Character):
         self.inventory = {}
     
     def move(self, dir):
+        """Method applying moves to the Character"""
         if dir=="NORTH":
             self.y -= 1
         elif dir == "SOUTH":
