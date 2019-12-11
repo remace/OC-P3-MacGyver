@@ -51,7 +51,7 @@ def main():
                 collision_sound.play()
                 print("ouch! there's a wall")
             if maze.mac_gyver.x == maze.guard.x and maze.mac_gyver.y == maze.guard.y:
-                win = maze.test_victoire()
+                win = maze.test_victory()
 
         elif action == "q":
             if maze.map[maze.mac_gyver.y][maze.mac_gyver.x - 1].genre != "M":
@@ -61,7 +61,7 @@ def main():
                 collision_sound.play()
                 print("ouch! there's a wall")
             if maze.mac_gyver.x == maze.guard.x and maze.mac_gyver.y == maze.guard.y:
-                win = maze.test_victoire()
+                win = maze.test_victory()
 
         elif action == "s":
             if maze.map[maze.mac_gyver.y + 1][maze.mac_gyver.x].genre != "M":
@@ -71,7 +71,7 @@ def main():
                 collision_sound.play()
                 print("ouch! there's a wall")
             if maze.mac_gyver.x == maze.guard.x and maze.mac_gyver.y == maze.guard.y:
-                win = maze.test_victoire()
+                win = maze.test_victory()
 
         elif action == "d":
             if maze.map[maze.mac_gyver.y][maze.mac_gyver.x + 1].genre != "M":
@@ -81,7 +81,7 @@ def main():
                 collision_sound.play()
                 print("ouch! there's a wall")
             if maze.mac_gyver.x == maze.guard.x and maze.mac_gyver.y == maze.guard.y:
-                win = maze.test_victoire()
+                win = maze.test_victory()
 
         elif action == "e":
             item_on_floor = False

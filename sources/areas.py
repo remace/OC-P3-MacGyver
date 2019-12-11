@@ -157,7 +157,7 @@ class Maze:
             window.blit(rendered_line, rect_text)
             y += 17
 
-    def test_victoire(self):
+    def test_victory(self):
         """function testing if the game ends with a victory or a lose.
         should be called only when Mac Gyver walks on a keeper
         """
